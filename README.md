@@ -148,6 +148,16 @@ just need a script to do the work for you:
 Now you can rotate the screen simply by typing `rotate` in a shell, or running
 the `rotate.desktop` file in GNOME or KDE.
 
+## Sound
+
+If you installed alsa-lib & alsa-utils but no sound output.
+
+* `alsamixer` can not open mixer, no such file.
+* `aplay -l` show PCH but with name Card 1.
+* If `lspci -nn | grep -i audio` show multi audio card with [vid:pid] info.
+* `vim /etc/modprobe.d/alsa.conf` set PCH card index and vid pid as below
+* `options snd-hda-intel id=PCH index=0 model=auto vid=xxxx pid=xxxx` will help system to choose right sound card
+
 # Troubleshooting
 
 > Oh Noes! What Have I Done?!?
